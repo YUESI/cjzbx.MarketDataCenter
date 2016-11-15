@@ -2,4 +2,6 @@
 /.classpath
 /.project
 /.settings/
+/src/main/resources/config/application.yml
+/src/main/resources/config/mybatis-generator.xml
 /target/
