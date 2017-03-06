@@ -6,6 +6,11 @@
 	<version>0.1</version>
 	<name>org.yuesi.cjzbx.MarketDataCenter</name>
 	<url>http://maven.apache.org</url>
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<entity.target.dir>src/main/java/</entity.target.dir>
+		<dao.resources.dir>src/main/resources/</dao.resources.dir>
+	</properties>
 	<build>
 		<finalName>cjzbx.MarketDataCenter</finalName>
 		<plugins>
@@ -111,11 +116,6 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.2.RELEASE</version>
 	</parent>
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<entity.target.dir>src/main/java/</entity.target.dir>
-		<dao.resources.dir>src/main/resources/</dao.resources.dir>
-	</properties>
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

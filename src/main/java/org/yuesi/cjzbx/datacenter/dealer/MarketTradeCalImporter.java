@@ -1,4 +1,4 @@
-package org.yuesi.cjzbx.datacenter.service;
+package org.yuesi.cjzbx.datacenter.dealer;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -7,20 +7,15 @@ import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DuplicateKeyException;
-import org.springframework.stereotype.Service;
-import org.yuesi.cjzbx.datacenter.dealer.DataYes;
-import org.yuesi.cjzbx.datacenter.domain.MarketTradeCal;
-import org.yuesi.cjzbx.datacenter.domain.mapper.MarketTradeCalMapper;
+import org.yuesi.cjzbx.datacenter.model.MarketTradeCal;
+import org.yuesi.cjzbx.datacenter.model.mapper.MarketTradeCalMapper;
 import org.yuesi.cjzbx.datacenter.util.JsonUtil;
 
 import net.sf.json.JSONObject;
 
-@Service
 public class MarketTradeCalImporter {
 	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	@Autowired
 	private MarketTradeCalMapper mapper;
 	private DataYes dateYes;
 	String tradeCalData = "";

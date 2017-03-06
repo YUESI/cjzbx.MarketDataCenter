@@ -1,4 +1,4 @@
-package org.yuesi.cjzbx.datacenter.domain;
+package org.yuesi.cjzbx.datacenter.model;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
