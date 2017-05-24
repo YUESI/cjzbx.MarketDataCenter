@@ -29,19 +29,26 @@ public class MarketTradeDailyController {
 	@RequestMapping("/find")
 	@ApiOperation(value = "获取行情数据", notes = "某个某股的高开低收等数据", httpMethod = "POST")
 	@ApiImplicitParams(value = {
-			@ApiImplicitParam(name = "date", value = "交易日", required = true, paramType = "query", dataType = "String"),
-			@ApiImplicitParam(name = "codeid", value = "证券代码带后缀", required = true, paramType = "query", dataType = "String") })
+			@ApiImplicitParam(name = "date", value = "交易日", defaultValue = "1990-12-19", required = true, paramType = "query", dataType = "String"),
+			@ApiImplicitParam(name = "codeid", value = "证券代码带后缀", defaultValue = "600601.SH", required = true, paramType = "query", dataType = "String") })
 	public MarketTradeDaily select(@RequestParam String date, @RequestParam String codeid) {
 		return server.find(date, codeid);
 	}
 
 	@RequestMapping("/add")
-	@ApiOperation(notes = "添加", value = "添加", httpMethod = "POST")
-	@ApiImplicitParam(name = "date", value = "交易日", required = true, paramType = "query", dataType = "String")
+	@ApiOperation(value = "添加某一天的全部行情数据", notes = "从日行情文件中逐行读入所有个股的行情数据，并添加入数据库", httpMethod = "POST")
+	@ApiImplicitParam(name = "date", value = "交易日", defaultValue = "2016-10-20", required = true, paramType = "query", dataType = "String")
 	public String add(@RequestParam String date) {
-		System.out.print(date);
 		server.importMarketData(date);
-		//return "hello " + server.insertSelective(marketTradedaily);
-		return null;
+		return date;
 	}
+	
+	@RequestMapping("/del")
+	@ApiOperation(value = "删除某一天的全部行情数据", notes = "从数据库中删除某日所有个股的行情数据", httpMethod = "POST")
+	@ApiImplicitParam(name = "date", value = "交易日", defaultValue = "2016-10-20", required = true, paramType = "query", dataType = "String")
+	public String del(String date) {
+		server.deleteMarketData(date);
+		return date;
+	}
+	
 }

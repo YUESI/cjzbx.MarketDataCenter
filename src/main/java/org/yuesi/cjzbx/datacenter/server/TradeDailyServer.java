@@ -12,4 +12,14 @@ public interface TradeDailyServer {
 	public MarketTradeDaily find(String tradedate, String codeid);
 
 	public void importMarketData(String tradedate);
+
+	/**
+	 * @param date
+	 */
+	public void deleteMarketData(String date);
+
+	/**
+	 * @return
+	 */
+	public String testStr();
 }

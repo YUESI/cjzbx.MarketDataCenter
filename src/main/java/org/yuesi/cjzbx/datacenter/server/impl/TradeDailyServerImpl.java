@@ -33,7 +33,24 @@ public class TradeDailyServerImpl implements TradeDailyServer {
 	 * @see org.yuesi.cjzbx.datacenter.server.TradeDailyServer#importMarketData(java.util.Date)
 	 */
 	public void importMarketData(String tradedate) {
-		DailyFile.getInstance().getDataFromDailyFile(tradedate, config.getDailyDataPath());
+		DailyFile.getInstance().getDataFromDailyFile(tradedate, config.getDailyDataPath(), mapper);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.yuesi.cjzbx.datacenter.server.TradeDailyServer#deleteMarketData(java.lang.String)
+	 */
+	@Override
+	public void deleteMarketData(String tradedate) {
+		mapper.deleteByPrimaryKey(DateUtil.stringToDate(tradedate), null);
+	}
+
+	/* (non-Javadoc)
+	 * @see org.yuesi.cjzbx.datacenter.server.TradeDailyServer#testStr()
+	 */
+	@Override
+	public String testStr() {
+		// TODO Auto-generated method stub
+		return "I am test";
 	}
 	
 }
