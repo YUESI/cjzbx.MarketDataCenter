@@ -1,5 +1,7 @@
 package org.yuesi.cjzbx.datacenter.web;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,9 +22,15 @@ public class MarketTradeDailyController {
 	@Autowired
 	private TradeDailyServer server;
 
+	private final Logger logger = LoggerFactory.getLogger(this.getClass());
+
 	@RequestMapping("/test")
 	@ApiOperation(value = "测试操作", notes = "无参数的测试操作，仅用来确认api是否可以访问", httpMethod = "POST")
 	public String test() {
+		logger.debug("This is a debug message");
+		logger.info("This is an info message");
+		logger.warn("This is a warn message");
+		logger.error("This is an error message");
 		return "test abc";
 	}
 
@@ -42,7 +50,7 @@ public class MarketTradeDailyController {
 		server.importMarketData(date);
 		return date;
 	}
-	
+
 	@RequestMapping("/del")
 	@ApiOperation(value = "删除某一天的全部行情数据", notes = "从数据库中删除某日所有个股的行情数据", httpMethod = "POST")
 	@ApiImplicitParam(name = "date", value = "交易日", defaultValue = "2016-10-20", required = true, paramType = "query", dataType = "String")
@@ -50,5 +58,5 @@ public class MarketTradeDailyController {
 		server.deleteMarketData(date);
 		return date;
 	}
-	
+
 }

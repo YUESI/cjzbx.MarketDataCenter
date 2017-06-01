@@ -2,6 +2,7 @@ package org.yuesi.cjzbx.datacenter.service;
 
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ public class MarketTradeCalImporterTest {
 	@Autowired
 	private MarketTradeCalImporter importer;
  
+	@Ignore  
 	@Test
 	public void testInsert()  {
 		int count;

@@ -55,12 +55,12 @@ public class DailyFile {
 					record.setTradedate(DateUtil.stringToDate(tradedate));
 					record.setCodeid(CommonUtil.normCodeid(items[1]));
 					record.setOpen(CommonUtil.strToBigDecimal(items[5]));
-					if (record.getOpen() == BigDecimal.valueOf(0)) continue;
+					//if (record.getOpen() == BigDecimal.valueOf(0)) continue;
 					record.setHigh(CommonUtil.strToBigDecimal(items[6]));
 					record.setLow(CommonUtil.strToBigDecimal(items[7]));
 					record.setClose(CommonUtil.strToBigDecimal(items[4]));
-					record.setVolume(Long.parseLong(items[9]));
-					record.setAmount(Long.parseLong(items[11]));
+					record.setVolume(CommonUtil.strToBigDecimal(items[9]).longValue());
+					record.setAmount(CommonUtil.strToBigDecimal(items[11]).longValue());
 					mapper.insert(record);
 				}
 				br.close();

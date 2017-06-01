@@ -1,11 +1,12 @@
 package org.yuesi.cjzbx.datacenter.dealer;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
-import org.yuesi.cjzbx.datacenter.dealer.DataYes;
 
+@Ignore
 public class DataYesTest {
 	static DataYes tc;
 

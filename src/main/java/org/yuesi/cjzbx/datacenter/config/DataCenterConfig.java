@@ -17,7 +17,7 @@ public class DataCenterConfig {
 
 	@Value("${my.datayespath}")
 	private String dailyDataPath;
-
+	
 	/**
 	 * @return the port
 	 */
