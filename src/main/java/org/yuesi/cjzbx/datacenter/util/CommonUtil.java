@@ -13,14 +13,20 @@ public class CommonUtil {
 
 	public static String normCodeid(String sixNo) {
 		String result;
-		String firstNo = sixNo.substring(0, 1);
+		String firstNo = "0";
+		
+		if(sixNo.length() == 6) 
+			firstNo = sixNo.substring(0, 1);
 		
 		switch (firstNo) {
 			case "0":
 			case "3":
 				result = sixNo + ".SZ";
+				break;
 			case "6":
+			case "9":
 				result = sixNo + ".SH";
+				break;
 			default:
 				result =sixNo + ".SH";
 		}
